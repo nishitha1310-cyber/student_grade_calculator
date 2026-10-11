@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ansible Playbook Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h2>🔴 Ansible Playbook Manager</h2>
+    <span>Automation Workspace</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">AUTOMATION WORKSPACE</p>
+      <h1>Build Your <span>Ansible Playbook</span></h1>
+      <p>Create, preview and download YAML playbooks easily.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="panel">
+        <h2>Playbook Configuration</h2>
+
+        <form id="playbookForm">
+          <label for="playName">Playbook Name</label>
+          <input id="playName" value="Web Server Setup" required>
+
+          <label for="hosts">Target Hosts</label>
+          <input id="hosts" value="webservers"
+                 pattern="[A-Za-z0-9_.,!:-]+" required>
+
+          <label for="become">Privilege Escalation</label>
+          <select id="become">
+            <option value="true">Enabled</option>
+            <option value="false">Disabled</option>
+          </select>
+
+          <label for="taskType">Automation Task</label>
+          <select id="taskType">
+            <option value="install">Install a package</option>
+            <option value="service">Manage a service</option>
+            <option value="directory">Create a directory</option>
+            <option value="update">Update package cache</option>
+          </select>
+
+          <div id="taskOptions"></div>
+          <button class="primary-btn" type="submit">Generate Playbook</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>YAML Preview</h2>
+        <p class="muted">Generated playbook will appear below.</p>
+        <pre id="output"># Click Generate Playbook to begin.</pre>
+
+        <div class="actions">
+          <button id="copyBtn" type="button">Copy YAML</button>
+          <button id="downloadBtn" type="button" class="primary-btn">
+            Download .yml
+          </button>
+        </div>
+        <p id="message" role="status"></p>
+      </div>
+    </section>
+
+    <section class="features">
+      <article><h3>01. Configure</h3><p>Select hosts and tasks.</p></article>
+      <article><h3>02. Generate</h3><p>Create YAML automatically.</p></article>
+      <article><h3>03. Export</h3><p>Copy or download your playbook.</p></article>
+    </section>
+
+    <footer>Ansible Playbook Manager | HTML · CSS · JavaScript</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
